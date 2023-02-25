@@ -1,0 +1,549 @@
+@import url("normalize.css");
+$menu_back: #EFEFEF;
+$button_back: #66C05D;
+$menu_font: #333333;
+$footer_font: #828282;
+$placeholder: #C4C4C4;
+$main-widh: 1110px;
+
+@mixin font ($size, $height, $weight, $color: #000) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+  color: $color;
+}
+
+@mixin button ($width, $height, $radius, $border_color, $color: #000) {
+  color: $color;
+  width: $width;
+  height: $height;
+  border: 2px solid $border_color;
+  border-radius: $radius;
+
+  @if $color ==#000 {
+    background-color: #fff;
+  }
+
+  @if $color ==#fff {
+    background-color: $button_back;
+  }
+}
+
+.page {
+  font-family: 'Roboto', sans-serif;
+  //max-width: 1920px;
+  // margin: 0 auto;
+  background-color: $menu_back;
+
+}
+
+.button {
+  padding: 0;
+  margin: 0;
+  min-width: 125px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  transition: opacity .3s;
+
+  &:hover {
+    cursor: pointer;
+    opacity: .6;
+    ;
+  }
+}
+
+.header {
+  border-bottom: 1px solid $menu_back;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+  background-color: #fff;
+
+  .button_pos_header {
+    margin-right: 405px;
+
+    @media (max-width: 1600px) {
+      margin-right: 100px;
+    }
+
+    @media (max-width: 970px) {
+      margin-right: 15px;
+    }
+  }
+}
+
+.button_pos_header {
+  @include button(170px, 40px, 40px, $button_back );
+  @include font(14px, 16px, 400);
+}
+
+.menu {
+  @include font (14px, 16px, 400, $menu_font);
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+  background-color: $menu_back;
+
+  .menu__items {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+
+    .menu__link {
+      color: $menu_font;
+      text-decoration: none;
+      transition: opacity .3s;
+
+      &:hover {
+        cursor: pointer;
+        opacity: .8;
+      }
+    }
+    @media (max-width: 470px) {
+      flex-wrap: wrap;
+      height: 50%;
+    }
+  }
+  @media (max-width: 470px) {
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 10px;
+
+  }
+}
+
+.logo-img {
+  background-repeat: no-repeat;
+  background-position: right;
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+  padding-left: 405px;
+  background-image: url(../images/logo.png);
+
+  @media (max-width: 1600px) {
+    padding-left: 100px;
+  }
+
+  @media (max-width: 970px) {
+    padding-left: 15px;
+  }
+}
+
+.header__title {
+  @include font(36px, 42px, 700, $button_back );
+  letter-spacing: .1em;
+  //flex-basis: 685px;
+  flex-grow: 2;
+}
+
+.header__phone {
+  @include font(16px, 19px, 400);
+  margin-right: 40px;
+  @media (max-width: 400px) {
+    flex-basis: 100%;
+    text-align: center;
+  }
+}
+
+.main-menu {
+  display: flex;
+  gap: 40px;
+  height: 80px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+
+  .main-menu__item {
+    margin: 0;
+    &:hover {
+      cursor: pointer;
+      opacity: .7;
+    }
+  }
+  @media (max-width: 680px) {
+    flex-wrap: wrap;
+    gap: 20px;
+    height: 40px;
+    padding-bottom: 55px;
+    padding-top: 30px;
+  }
+}
+
+.sale {
+  background-image: url(../images/main.jpg);
+  box-sizing: border-box;
+  width: 100%;
+  height: 604px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 200px;
+  padding-left: 405px;
+
+  .button_pos_sale {
+    @include button(170px, 40px, 40px, #fff, #fff);
+  }
+
+  .sale__title {
+    @include font(48px, 56px, 700, #fff);
+    margin-bottom: 50px;
+    margin-top: 0;
+  }
+
+  .sale__description {
+    width: 308px;
+    @include font(14px, 20px, 400, #fff);
+    margin-bottom: 50px;
+    margin-top: 0;
+  }
+
+  @media (max-width: 1600px) {
+    padding: 200px 0 0 100px;
+  }
+
+  @media (max-width: 970px) {
+    padding: 100px 0 0 15px;
+  }
+}
+
+.special {
+  background-color: $menu_back;
+  padding: 70px 0 100px;
+  position: relative;
+
+  .special__heading {
+    width: $main-widh;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-bottom: 17px;
+    padding-right: 46px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .special__title {
+      @include font(24px, 28px, 700);
+    }
+
+    @media (max-width: 1160px) {
+      width: 580px;
+      padding-right: 0;
+    }
+  }
+
+  .cards {
+    display: flex;
+    width: $main-widh;
+    margin: 0 auto;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .card {
+      width: 255px;
+      height: 363px;
+      background-color: #fff;
+      box-sizing: border-box;
+      padding: 25px 30px;
+      text-align: center;
+
+      .card__details {
+        margin: 15px 0;
+        @include font(14px, 20px, 400, $menu_font)
+      }
+
+      .card__price {
+        margin: 0 0 15px;
+        @include font(21px, 25px, 500);
+        letter-spacing: 0.05em;
+      }
+
+      .button_pos_card {
+        @include button(130px, 35px, 30px, #fff, #fff);
+        @include font(14px, 16px, 400, #fff);
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 1160px) {
+      width: 550px;
+      gap: 15px;
+    }
+    @media (max-width: 570px) {
+      width: 290px;
+      gap: 15px;
+    }
+  }
+
+}
+
+.info {
+  width: $main-widh;
+  margin: 0 auto;
+  padding-bottom: 132px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+
+  .info-item {
+    box-sizing: border-box;
+    width: $main-widh/2 - 15px;
+    height: 212px;
+    background-color: $button_back;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 35px 40px;
+    @media (max-width: 570px) {
+      height: 340px;
+      width: 280px;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+
+    }
+  }
+
+  .info-item__heading {
+    width: 265px;
+    margin: 0;
+    margin-bottom: 23px;
+    @include font(18px, 21px, 700, #fff);
+    @media (max-width: 570px){
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .info-item__text {
+    width: 231px;
+    margin: 0;
+    margin-bottom: 23px;
+    @include font(14px, 20px, 400, #fff);
+  }
+
+  .info-item__text_small {
+    width: 141px;
+  }
+
+  .info-item__image {
+    display: block;
+    width: 140px;
+    height: 107px;
+    align-self: flex-end;
+    @media (max-width: 570px) {
+      align-self: center;
+    }
+  }
+
+  .info-item__input {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    width: 225px;
+    height: 35px;
+    padding-left: 25px;
+    border-radius: 30px;
+    @include font(14px, 16px, 400);
+
+    &::placeholder {
+      color: $placeholder;
+    }
+    @media (max-width: 570px){
+      margin-bottom: 20px;
+    }
+  }
+
+  .button_pos_info {
+    @include font(14px, 16px, 400, #fff);
+    @include button(170px, 35px, 30px, #fff, #fff);
+  }
+
+  @media (max-width: 1160px) {
+    width: 560px;
+    justify-content: center;
+  }
+  @media (max-width: 570px){
+    width: 100%;
+  }
+}
+
+.contacts {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 37px 405px;
+
+  .social {
+    display: flex;
+    margin: 0;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    box-sizing: border-box;
+    flex-basis: 445px;
+
+    .social__link {
+      display: flex;
+      box-sizing: border-box;
+      justify-content: center;
+      align-items: center;
+      width: 45px;
+      height: 45px;
+      border: 2px solid $button_back;
+      border-radius: 50%;
+    }
+
+  }
+
+  .contacts__address {
+    @include font(14px, 16px, 400);
+    flex-basis: 332px;
+    min-width: 230px;
+  }
+
+  .contacts__phone {
+    text-align: center;
+    min-width: 167px;
+  }
+
+  @media (max-width: 1600px) {
+    padding: 37px 100px;
+  }
+
+  @media (max-width: 970px) {
+    padding: 37px 15px;
+  }
+
+}
+
+.footer {
+  @include font(12px, 14px, 400, $footer_font);
+  padding: 0 405px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .footer__text {
+    margin: 25px 0;
+  }
+
+  .footer__link {
+    min-width: 185px;
+    text-decoration: none;
+    color: $footer_font;
+    margin: 25px 0;
+  }
+
+  @media (max-width: 1600px) {
+    padding: 0 100px;
+  }
+
+  @media (max-width: 970px) {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 830px) {
+  .contacts {
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .social {
+      flex-basis: 40%;
+      margin-right: 10px;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .contacts__address {
+      flex-basis: 40%;
+    }
+    .contacts__phone {
+      flex-basis: 50%;
+      text-align: center;
+      padding-right: 20px;
+    }
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .footer__text {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 680px){
+  .logo-img {
+    flex-basis: 45%;
+    margin-right: 2.5%;
+    margin-left: 2.5%;
+    padding-left: 0;
+  }
+  .header__title {
+    flex-basis: 45%;
+    margin-right: 2.5%;
+    margin-left: 2.5%;
+  }
+
+  .header__phone {
+    margin-right: 20px;
+  }
+
+  .sale {
+    background-position-x: 62%;
+
+    .sale__description {
+      width: 100%;
+    }
+    .sale__title {
+      width: 100%;
+    }
+  }
+
+  .special .special__heading {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 20px;
+    .special__title {
+      flex-basis: 100%;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .logo-img{
+    flex-basis: 100%;
+    background-position: center;
+  }
+
+  .header__title {
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+}
